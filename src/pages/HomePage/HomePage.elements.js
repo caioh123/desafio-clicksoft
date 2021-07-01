@@ -20,6 +20,7 @@ font-size: 22px;
 font-family: ${fonts.header};
 padding-top: 60px;
 margin-bottom: 20px;
+align-self: center;
 `
 
 export const SectionTitle = styled.Text`

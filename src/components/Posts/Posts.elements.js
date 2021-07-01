@@ -14,7 +14,7 @@ background-color: white;
 padding: 15px;
 border-radius: 10px;
 align-items: center;
-margin-bottom: 20px;
+margin: 0 10px 20px 10px;
 `
 
 export const ItemContainer = styled.View`

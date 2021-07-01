@@ -35,7 +35,7 @@ const LongText = ({ content, limit }) => {
   if (showAll) {
     return (
       <Container>
-        <ItemText onPress={showLess}>{content}</ItemText>
+        <ItemText onPress={toggle}>{content}</ItemText>
         {showAll ? (
           <AntDesign name="caretup" size={24} color={colors.container} />
         ) : (
@@ -47,8 +47,8 @@ const LongText = ({ content, limit }) => {
 
   const toShow = content.substring(0, limit) + "...";
   return (
-    <Container onPress={showMore}>
-      <ItemText onPress={showMore}>{toShow}</ItemText>
+    <Container>
+      <ItemText onPress={toggle}>{toShow}</ItemText>
       {showAll ? (
         <AntDesign name="caretup" size={24} color={colors.container} />
       ) : (
