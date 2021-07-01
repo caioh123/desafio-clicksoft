@@ -1,7 +1,8 @@
 import { FlatList } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Container, Title } from "./HomePage.elements";
+import { Container, Title, TasksWrapper } from "./HomePage.elements";
 import axios from "axios";
+import { Posts } from "../../components/Posts/Posts";
 
 export const HomePage = () => {
   const [posts, setPosts] = useState([]);
@@ -23,7 +24,7 @@ export const HomePage = () => {
       <FlatList
         data={posts}
         keyExtractor={({ id }) => id}
-        renderItem={({ item }) => <Title>{item.title}</Title>}
+        renderItem={({ item }) => <Posts body={item.body} title={item.title} />}
       />
     </Container>
   );
