@@ -1,7 +1,13 @@
 import styled from 'styled-components'
 import { colors, fonts } from '../../styles/theme'
 
-export const Container = styled.View``
+
+export const Container = styled.View`
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+width: 100%;
+`
 
 export const Item = styled.View`
 background-color: white;
@@ -11,13 +17,28 @@ align-items: center;
 margin-bottom: 20px;
 `
 
+export const ItemContainer = styled.View`
+flex-direction: row;
+width: 100%;
+align-items: center;
+justify-content: space-between;
+`
+
+export const DeleteButton = styled.TouchableOpacity`
+
+`
+
+
 export const ItemHeader = styled.Text`
 font-family: ${fonts.header};
 font-size: 18px;
 color: black;
+flex-wrap: wrap;
+max-width: 90%;
+margin-bottom: 20px;
 `
 
-export const ItemLeft = styled.View`
+export const ItemBody = styled.View`
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
@@ -34,4 +55,5 @@ margin-right: 15px;
 
 export const ItemText = styled.Text`
 font-size: 20px;
+max-width: 93%;
 `

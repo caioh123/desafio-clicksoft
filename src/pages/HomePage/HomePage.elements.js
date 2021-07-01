@@ -19,6 +19,7 @@ color: white;
 font-size: 22px;
 font-family: ${fonts.header};
 padding-top: 60px;
+margin-bottom: 20px;
 `
 
 export const SectionTitle = styled.Text`

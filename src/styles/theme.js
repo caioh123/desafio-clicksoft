@@ -5,6 +5,7 @@ export const fonts = {
 
 export const colors = {
   container: "rgb(100, 50, 250)",
+  danger: "#FF0000",
   randomColorOne: "#5810F8",
   randomColorTwo: "#3068F8",
   randomColorThree: "#F86018",

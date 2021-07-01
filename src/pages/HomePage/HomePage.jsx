@@ -23,7 +23,7 @@ export const HomePage = () => {
       <Title>Aqui está sua lista de postagens</Title>
       <FlatList
         data={posts}
-        keyExtractor={({ id }) => id}
+        keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => <Posts body={item.body} title={item.title} />}
       />
     </Container>
