@@ -1,11 +1,14 @@
 import { FlatList } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Container, Title, TasksWrapper } from "./HomePage.elements";
 import axios from "axios";
 import { Posts } from "../../components/Posts/Posts";
+import { AuthContext, useAuth } from "../../context/context";
 
 export const HomePage = () => {
   const [posts, setPosts] = useState([]);
+
+  const { user, setUser } = useAuth();
 
   useEffect(() => {
     const fetchResult = async () => {
@@ -16,6 +19,7 @@ export const HomePage = () => {
     };
 
     fetchResult();
+    console.log(user);
   }, []);
 
   return (
