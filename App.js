@@ -5,7 +5,7 @@ import {MyTabs} from './src/routes/index'
 import {useFonts, Jost_400Regular, Jost_700Bold} from '@expo-google-fonts/jost'
 import AppLoading from 'expo-app-loading'
 import theme from './src/styles/theme'
-import {AuthProvider} from './src/context/context'
+import {PostsProvider} from './src/context/context'
 
 
 export default function App() {
@@ -19,11 +19,11 @@ export default function App() {
   }
 
   return (
-    <AuthProvider>    
+    <PostsProvider>    
     <NavigationContainer>
       <MyTabs />
     </NavigationContainer>
-    </AuthProvider>
+    </PostsProvider>
   );
 }
 

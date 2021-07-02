@@ -1,18 +1,31 @@
-import React, {createContext, useState, useContext} from 'react'
+import React, {createContext, useState, useContext, useEffect} from 'react'
+import axios from "axios"
 
-export const AuthContext = createContext({})
+export const PostsContext = createContext({})
 
-export const AuthProvider = (props) => {
+export const PostsProvider = (props) => {
+  const [posts, setPosts] = useState([]);
 
-  const [user, setUser] = useState({
-    name: "Caio"
-  })
+
+  useEffect(() => {
+    const fetchResult = async () => {
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/posts/"
+      );
+      setPosts(response.data);
+      console.log("LOGANDO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", response)
+    };
+
+    fetchResult();
+
+  }, []);
+
 
   return (
-    <AuthContext.Provider value={{user, setUser}}>
+    <PostsContext.Provider value={{posts, setPosts}}>
       {props.children}
-    </AuthContext.Provider>
+    </PostsContext.Provider>
   )
 }
 
-export const useAuth = () => useContext(AuthContext)
+export const usePosts = () => useContext(PostsContext)

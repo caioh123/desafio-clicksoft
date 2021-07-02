@@ -3,25 +3,10 @@ import React, { useEffect, useState, useContext } from "react";
 import { Container, Title, TasksWrapper } from "./HomePage.elements";
 import axios from "axios";
 import { Posts } from "../../components/Posts/Posts";
-import { AuthContext, useAuth } from "../../context/context";
+import { PostsContext, usePosts } from "../../context/context";
 
 export const HomePage = () => {
-  const [posts, setPosts] = useState([]);
-
-  const { user, setUser } = useAuth();
-
-  useEffect(() => {
-    const fetchResult = async () => {
-      const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/posts/"
-      );
-      setPosts(response.data);
-    };
-
-    fetchResult();
-    console.log(user);
-  }, []);
-
+  const { posts, setPosts } = usePosts();
   return (
     <Container>
       <Title>Aqui está sua lista de postagens</Title>
