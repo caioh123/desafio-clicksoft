@@ -13,11 +13,9 @@ export const PostsProvider = (props) => {
         "https://jsonplaceholder.typicode.com/posts/"
       );
       setPosts(response.data);
-      console.log("LOGANDO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", response)
     };
 
     fetchResult();
-
   }, []);
 
 

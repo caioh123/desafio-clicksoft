@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { View, Text, Button } from "react-native";
 import {
   Item,
   ItemHeader,
@@ -8,15 +7,15 @@ import {
   ItemContainer,
   Square,
   Container,
+  DeleteButton,
 } from "./Posts.elements";
-import { AntDesign, MaterialIcons } from "@expo/vector-icons";
+import { AntDesign, MaterialIcons, FontAwesome } from "@expo/vector-icons";
 import { colors } from "../../styles/theme";
+import { usePosts } from "../../context/context";
+import axios from "axios";
 
 const LongText = ({ content, limit }) => {
   const [showAll, setShowAll] = useState(false);
-
-  const showMore = () => setShowAll(true);
-  const showLess = () => setShowAll(false);
 
   const toggle = () => setShowAll(!showAll);
 
@@ -24,11 +23,6 @@ const LongText = ({ content, limit }) => {
     return (
       <Container>
         <ItemText>{content}</ItemText>
-        {showAll ? (
-          <AntDesign name="caretup" size={24} color={colors.container} />
-        ) : (
-          <AntDesign name="caretdown" size={24} color={colors.container} />
-        )}
       </Container>
     );
   }
@@ -58,20 +52,34 @@ const LongText = ({ content, limit }) => {
   );
 };
 
-export const Posts = (props) => {
+export const Posts = ({ body, title, id }) => {
+  const { posts, setPosts } = usePosts();
+
+  const handleDelete = async (postId) => {
+    console.log(postId);
+
+    const filteredPost = posts.filter((p) => p.id !== postId);
+
+    setPosts(filteredPost);
+
+    await axios.delete(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+  };
+
   return (
     <Item>
       <ItemContainer>
-        <ItemHeader>{props.title}</ItemHeader>
-        <MaterialIcons
-          style={{ marginBottom: 15 }}
-          name="dangerous"
-          size={40}
-          color={colors.danger}
-        />
+        <ItemHeader>{title}</ItemHeader>
+        <DeleteButton onPress={() => handleDelete(id)}>
+          <FontAwesome
+            style={{ marginBottom: 15 }}
+            name="remove"
+            size={40}
+            color={colors.danger}
+          />
+        </DeleteButton>
       </ItemContainer>
       <ItemBody>
-        <LongText content={props.body} limit={60} />
+        <LongText content={body} limit={60} />
       </ItemBody>
     </Item>
   );

@@ -13,7 +13,9 @@ export const HomePage = () => {
       <FlatList
         data={posts}
         keyExtractor={(item) => String(item.id)}
-        renderItem={({ item }) => <Posts body={item.body} title={item.title} />}
+        renderItem={({ item }) => (
+          <Posts id={item.id} body={item.body} title={item.title} />
+        )}
       />
     </Container>
   );

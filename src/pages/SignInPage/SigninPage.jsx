@@ -7,7 +7,12 @@ export const SignInPage = () => {
   const { posts, setPosts } = usePosts();
 
   const handlePost = async () => {
-    const obj = { title: "caio", body: "fazendo código", userId: 1 };
+    const obj = {
+      title: "caio",
+      body: "fazendo ",
+      userId: 1,
+      id: 2,
+    };
     const { data } = await axios.post(
       "https://jsonplaceholder.typicode.com/posts/",
       obj
@@ -16,6 +21,7 @@ export const SignInPage = () => {
     const postList = [data, ...posts];
     setPosts(postList);
   };
+
   return (
     <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
       <Button title="pressione" onPress={handlePost} />

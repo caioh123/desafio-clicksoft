@@ -6,7 +6,13 @@ export const Container = styled.View`
 flex-direction: row;
 align-items: center;
 justify-content: space-between;
-width: 100%;
+min-width: 92%;
+max-width: 93%;
+`
+
+export const ItemText = styled.Text`
+font-size: 20px;
+max-width: 93%;
 `
 
 export const Item = styled.View`
@@ -53,7 +59,3 @@ border-radius: 10px;
 margin-right: 15px;
 `
 
-export const ItemText = styled.Text`
-font-size: 20px;
-max-width: 93%;
-`
