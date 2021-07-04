@@ -8,14 +8,15 @@ export const PostsProvider = (props) => {
 
 
   useEffect(() => {
-    const fetchResult = async () => {
+    const fetchResultsPosts = async () => {
       const response = await axios.get(
         "https://jsonplaceholder.typicode.com/posts/"
       );
       setPosts(response.data);
     };
 
-    fetchResult();
+
+    fetchResultsPosts();
   }, []);
 
 

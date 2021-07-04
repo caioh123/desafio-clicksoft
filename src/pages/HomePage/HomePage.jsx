@@ -7,6 +7,7 @@ import { PostsContext, usePosts } from "../../context/context";
 
 export const HomePage = () => {
   const { posts, setPosts } = usePosts();
+
   return (
     <Container>
       <Title>Aqui está sua lista de postagens</Title>

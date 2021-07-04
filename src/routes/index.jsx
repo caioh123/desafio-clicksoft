@@ -1,4 +1,5 @@
 import React from "react";
+import { fonts, colors } from "../styles/theme";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Platform } from "react-native";
 import { HomePage } from "../pages/HomePage/HomePage";
@@ -12,7 +13,7 @@ export function MyTabs() {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        activeTintColor: "#32b768",
+        activeTintColor: colors.container,
         inactiveTintColor: "#52665a",
         labelPosition: "beside-icon",
         style: {
