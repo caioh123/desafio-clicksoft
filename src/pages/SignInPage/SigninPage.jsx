@@ -10,7 +10,6 @@ import {
   SubmitButton,
   SubmitText,
 } from "./SignInPage.elements";
-import { uuid } from "uuid";
 
 function generateRandomNumber(min, max) {
   return Math.floor(Math.random() * max) + min;

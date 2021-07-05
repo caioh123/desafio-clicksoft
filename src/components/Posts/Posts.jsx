@@ -63,10 +63,6 @@ export const Posts = ({ body, title, id, userId }) => {
     });
   };
 
-  const handleUser = (postId) => {
-    navigation.navigate("UserProfile");
-  };
-
   const { posts, setPosts, users, setUsers } = usePosts();
 
   const handleDelete = async (postId) => {
