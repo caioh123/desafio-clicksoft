@@ -53,14 +53,21 @@ const LongText = ({ content, limit }) => {
   );
 };
 
-export const Posts = ({ body, title, id }) => {
+export const Posts = ({ body, title, id, userId }) => {
   const navigation = useNavigation();
+
+  const getUser = (id) => {
+    const user = users.filter((user) => user.id === id);
+    navigation.navigate("UserProfile", {
+      user: user[0],
+    });
+  };
 
   const handleUser = (postId) => {
     navigation.navigate("UserProfile");
   };
 
-  const { posts, setPosts } = usePosts();
+  const { posts, setPosts, users, setUsers } = usePosts();
 
   const handleDelete = async (postId) => {
     const filteredPost = posts.filter((p) => p.id !== postId);
@@ -73,7 +80,7 @@ export const Posts = ({ body, title, id }) => {
   return (
     <Item>
       <ItemContainer>
-        <ItemHeader onPress={handleUser}>{title}</ItemHeader>
+        <ItemHeader onPress={() => getUser(userId)}>{title}</ItemHeader>
         <DeleteButton onPress={() => handleDelete(id)}>
           <FontAwesome
             style={{ marginBottom: 15 }}

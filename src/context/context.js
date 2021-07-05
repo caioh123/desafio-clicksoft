@@ -5,7 +5,7 @@ export const PostsContext = createContext({})
 
 export const PostsProvider = (props) => {
   const [posts, setPosts] = useState([]);
-  const [users,setUsers] = useState([])
+  const [users, setUsers] = useState([])
   const [items, setItems] = useState([])
 
 
@@ -38,7 +38,7 @@ export const PostsProvider = (props) => {
   }, []);
 
 
-  console.log(posts[0].id)
+  // console.log(posts[0].id)
 
   // const result = posts.map(post => (
   //   post.id
@@ -47,13 +47,13 @@ export const PostsProvider = (props) => {
   // console.log(result)
 
 
-  const result = posts.map(post => {
-    const user = users.find(user => user.id == post.userId)
-    return { ...user, ...post }
-  })
-  console.log('result', result)
+  // const result = posts.map(post => {
+  //   const user = users.find(user => user.id == post.userId)
+  //   return { ...user, ...post }
+  // })
+  // console.log('result', result)
 
-  setItems(result);
+  // setItems(result);
   
 
   return (

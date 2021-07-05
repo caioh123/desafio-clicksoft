@@ -30,11 +30,6 @@ align-items: center;
 justify-content: space-between;
 `
 
-export const DeleteButton = styled.TouchableOpacity`
-
-`
-
-
 export const ItemHeader = styled.Text`
 font-family: ${fonts.header};
 font-size: 18px;

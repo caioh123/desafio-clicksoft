@@ -15,7 +15,12 @@ export const HomePage = () => {
         data={posts}
         keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => (
-          <Posts id={item.id} body={item.body} title={item.title} />
+          <Posts
+            userId={item.userId}
+            id={item.id}
+            body={item.body}
+            title={item.title}
+          />
         )}
       />
     </Container>
