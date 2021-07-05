@@ -6,6 +6,7 @@ import {useFonts, Jost_400Regular, Jost_700Bold} from '@expo-google-fonts/jost'
 import AppLoading from 'expo-app-loading'
 import theme from './src/styles/theme'
 import {PostsProvider} from './src/context/context'
+import {Routes} from './src/routes/index'
 
 
 export default function App() {
@@ -20,9 +21,7 @@ export default function App() {
 
   return (
     <PostsProvider>    
-    <NavigationContainer>
-      <MyTabs />
-    </NavigationContainer>
+      <Routes />
     </PostsProvider>
   );
 }

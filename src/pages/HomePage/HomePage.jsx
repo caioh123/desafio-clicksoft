@@ -6,7 +6,7 @@ import { Posts } from "../../components/Posts/Posts";
 import { PostsContext, usePosts } from "../../context/context";
 
 export const HomePage = () => {
-  const { posts, setPosts } = usePosts();
+  const { posts, setPosts, items } = usePosts();
 
   return (
     <Container>

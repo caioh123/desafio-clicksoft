@@ -13,6 +13,7 @@ import { AntDesign, MaterialIcons, FontAwesome } from "@expo/vector-icons";
 import { colors } from "../../styles/theme";
 import { usePosts } from "../../context/context";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/core";
 
 const LongText = ({ content, limit }) => {
   const [showAll, setShowAll] = useState(false);
@@ -53,11 +54,15 @@ const LongText = ({ content, limit }) => {
 };
 
 export const Posts = ({ body, title, id }) => {
+  const navigation = useNavigation();
+
+  const handleUser = (postId) => {
+    navigation.navigate("UserProfile");
+  };
+
   const { posts, setPosts } = usePosts();
 
   const handleDelete = async (postId) => {
-    console.log(postId);
-
     const filteredPost = posts.filter((p) => p.id !== postId);
 
     setPosts(filteredPost);
@@ -68,7 +73,7 @@ export const Posts = ({ body, title, id }) => {
   return (
     <Item>
       <ItemContainer>
-        <ItemHeader>{title}</ItemHeader>
+        <ItemHeader onPress={handleUser}>{title}</ItemHeader>
         <DeleteButton onPress={() => handleDelete(id)}>
           <FontAwesome
             style={{ marginBottom: 15 }}

@@ -45,6 +45,6 @@ align-items: center;
 border-radius: 16px;
 margin-bottom: 10px;
 height: 56px;
-width: 150px;
+width: 300px;
 
 `
