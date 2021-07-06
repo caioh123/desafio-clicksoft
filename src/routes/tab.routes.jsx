@@ -3,7 +3,7 @@ import { fonts, colors } from "../styles/theme";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Platform } from "react-native";
 import { HomePage } from "../pages/HomePage/HomePage";
-import { SignInPage } from "../pages/SignInPage/SigninPage";
+import { AddPostPage } from "../pages/AddPostPage/AddPostPage";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 
@@ -20,8 +20,7 @@ export function MyTabs() {
           paddingVertical: Platform.OS === "ios" ? 20 : 0,
           height: 88,
         },
-      }}
-    >
+      }}>
       <AppTab.Screen
         name="HomePage"
         component={HomePage}
@@ -37,7 +36,7 @@ export function MyTabs() {
       />
       <AppTab.Screen
         name="AddPost"
-        component={SignInPage}
+        component={AddPostPage}
         options={{
           tabBarIcon: ({ size, color }) => (
             <Entypo name="add-to-list" size={size} color={color} />

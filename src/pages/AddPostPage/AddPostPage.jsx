@@ -9,9 +9,9 @@ import {
   InputContainer,
   SubmitButton,
   SubmitText,
-} from "./SignInPage.elements";
+} from "./AddPostPage.elements";
 
-export const SignInPage = () => {
+export const AddPostPage = () => {
   const { posts, setPosts } = usePosts();
 
   const [title, setTitle] = useState();
