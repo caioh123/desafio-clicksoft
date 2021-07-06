@@ -9,6 +9,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [React Native](https://reactnative.dev/)
 - [Expo](https://expo.io/)
 - [Styled Components](https://styled-components.com/)
+- [Axios](https://github.com/axios/axios)
 
 ## 💻 Projeto
 
