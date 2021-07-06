@@ -9,7 +9,7 @@ import {
   Container,
   DeleteButton,
 } from "./Posts.elements";
-import { AntDesign, MaterialIcons, FontAwesome } from "@expo/vector-icons";
+import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import { colors } from "../../styles/theme";
 import { usePosts } from "../../context/context";
 import axios from "axios";
@@ -63,7 +63,7 @@ export const Posts = ({ body, title, id, userId }) => {
     });
   };
 
-  const { posts, setPosts, users, setUsers } = usePosts();
+  const { posts, setPosts, users } = usePosts();
 
   const handleDelete = async (postId) => {
     const filteredPost = posts.filter((p) => p.id !== postId);

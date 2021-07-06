@@ -1,13 +1,10 @@
 export const fonts = {
   header: "Jost_700Bold",
-  text: "Jost_400Regular"
-}
+  text: "Jost_400Regular",
+};
 
 export const colors = {
-  container: "rgb(100, 50, 250)",
+  container: "#9999FF",
   danger: "#FF0000",
-  randomColorOne: "#5810F8",
-  randomColorTwo: "#3068F8",
-  randomColorThree: "#F86018",
-  squareColor: "#55BCF6",
-}
+  text: "#660066",
+};

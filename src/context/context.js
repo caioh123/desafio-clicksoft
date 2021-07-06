@@ -1,12 +1,11 @@
-import React, {createContext, useState, useContext, useEffect} from 'react'
-import axios from "axios"
+import React, { createContext, useState, useContext, useEffect } from "react";
+import axios from "axios";
 
-export const PostsContext = createContext({})
+export const PostsContext = createContext({});
 
 export const PostsProvider = (props) => {
   const [posts, setPosts] = useState([]);
-  const [users, setUsers] = useState([])
-
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const fetchResultsPosts = async () => {
@@ -19,47 +18,19 @@ export const PostsProvider = (props) => {
     const fetchResultsUsers = async () => {
       const response = await axios.get(
         "https://jsonplaceholder.typicode.com/users"
-        )
+      );
 
-      setUsers(response.data)     
-      
-    }
-
+      setUsers(response.data);
+    };
     fetchResultsPosts();
-    fetchResultsUsers()
-
-    // const obj = [...users ,...posts]
-
-    // setItems(obj)
-
-    
-
+    fetchResultsUsers();
   }, []);
 
-
-  // console.log(posts[0].id)
-
-  // const result = posts.map(post => (
-  //   post.id
-  // ))
-
-  // console.log(result)
-
-
-  // const result = posts.map(post => {
-  //   const user = users.find(user => user.id == post.userId)
-  //   return { ...user, ...post }
-  // })
-  // console.log('result', result)
-
-  // setItems(result);
-  
-
   return (
-    <PostsContext.Provider value={{posts, setPosts, users, setUsers}}>
+    <PostsContext.Provider value={{ posts, setPosts, users, setUsers }}>
       {props.children}
     </PostsContext.Provider>
-  )
-}
+  );
+};
 
-export const usePosts = () => useContext(PostsContext)
+export const usePosts = () => useContext(PostsContext);

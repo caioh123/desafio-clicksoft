@@ -6,15 +6,26 @@ import {
   ProfileImg,
   UserImageContainer,
   UserEmail,
+  UserInfoHeaderContainer,
+  UserInfoBodyContainer,
+  UserInfoContactEmailContainer,
+  EmailLink,
+  EmailContainer,
+  ZipCode,
+  WebsiteContainer,
 } from "./UserProfile.elements";
 import { useRoute } from "@react-navigation/core";
+import {
+  MaterialCommunityIcons,
+  MaterialIcons,
+  Feather,
+  Foundation,
+} from "@expo/vector-icons";
 
 export const UserProfile = () => {
   const routes = useRoute();
 
   const { user } = routes.params;
-
-  console.log(user[0]);
 
   return (
     <Container>
@@ -27,8 +38,37 @@ export const UserProfile = () => {
           />
         </UserImageContainer>
         <UserName>{user.name}</UserName>
-        <UserEmail>{user.email}</UserEmail>
+        <UserInfoHeaderContainer>
+          <Feather
+            style={{ marginRight: 10 }}
+            name="map-pin"
+            size={30}
+            color="black"
+          />
+          <UserEmail>{user.address.street}, </UserEmail>
+          <UserEmail>{user.address.city}</UserEmail>
+        </UserInfoHeaderContainer>
       </TopContainer>
+      <UserInfoBodyContainer>
+        <Feather name="phone" size={30} color="black" />
+        <UserEmail>{user.phone}</UserEmail>
+        <MaterialCommunityIcons
+          name="android-messages"
+          size={30}
+          color="black"
+        />
+      </UserInfoBodyContainer>
+      <UserInfoContactEmailContainer>
+        <MaterialIcons name="alternate-email" size={30} color="black" />
+        <EmailContainer>
+          <EmailLink>{user.email}</EmailLink>
+          <ZipCode>{user.address.zipcode}</ZipCode>
+        </EmailContainer>
+      </UserInfoContactEmailContainer>
+      <WebsiteContainer>
+        <Foundation name="web" size={30} color="black" />
+        <EmailLink>{user.website}</EmailLink>
+      </WebsiteContainer>
     </Container>
   );
 };

@@ -1,12 +1,11 @@
 import { FlatList } from "react-native";
-import React, { useEffect, useState, useContext } from "react";
-import { Container, Title, TasksWrapper } from "./HomePage.elements";
-import axios from "axios";
+import React from "react";
+import { Container, Title } from "./HomePage.elements";
 import { Posts } from "../../components/Posts/Posts";
-import { PostsContext, usePosts } from "../../context/context";
+import { usePosts } from "../../context/context";
 
 export const HomePage = () => {
-  const { posts, setPosts, items } = usePosts();
+  const { posts } = usePosts();
 
   return (
     <Container>

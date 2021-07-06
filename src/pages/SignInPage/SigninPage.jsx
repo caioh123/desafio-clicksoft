@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Button } from "react-native";
+import { Alert } from "react-native";
 import axios from "axios";
 import { usePosts } from "../../context/context";
 import {
@@ -11,25 +11,23 @@ import {
   SubmitText,
 } from "./SignInPage.elements";
 
-function generateRandomNumber(min, max) {
-  return Math.floor(Math.random() * max) + min;
-}
-
 export const SignInPage = () => {
   const { posts, setPosts } = usePosts();
 
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
+  const [title, setTitle] = useState();
+  const [desc, setDesc] = useState();
 
   const handlePost = async () => {
+    if (!title) return Alert.alert("Por favor, digite o título");
+
+    if (!desc) return Alert.alert("Por favor, digite a descrição ");
+
     const obj = {
       title: title,
       body: desc,
-      userId: generateRandomNumber(100, 100000),
+      userId: 2,
       id: 103,
     };
-
-    console.log(obj);
 
     const { data } = await axios.post(
       "https://jsonplaceholder.typicode.com/posts/",
@@ -61,8 +59,8 @@ export const SignInPage = () => {
         />
       </InputContainer>
 
-      <SubmitButton>
-        <SubmitText onPress={handlePost}>Adicionar</SubmitText>
+      <SubmitButton onPress={handlePost}>
+        <SubmitText>Adicionar</SubmitText>
       </SubmitButton>
     </Container>
   );
